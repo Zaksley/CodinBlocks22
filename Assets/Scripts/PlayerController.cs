@@ -17,10 +17,25 @@ public class PlayerController : MonoBehaviour
     public State state; 
     public bool isGrounded = false; 
 
+    public Transform groundCheckLeft;
+
+    public Transform groundCheckRight;
+    private BoxCollider2D boxCollider2d;
+
+    //[SerializeField] private LayerMask layerMask;
+
+
+    private void Awake() {
+        boxCollider2d = transform.GetComponent<BoxCollider2D>();
+    }
 
     // Sprites
     public Sprite darkSprite; 
     public Sprite lightSprite; 
+
+
+  
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +44,10 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
+        isGrounded = Physics2D.OverlapArea(groundCheckLeft.position, groundCheckRight.position);
         Jump(); 
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); 
@@ -59,6 +76,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y - switchHeight, transform.position.z); 
             state = State.DARK; 
             jumpDirection = -1; 
+            groundCheckRight.position = new Vector3(groundCheckRight.position.x, groundCheckRight.position.y + 1.01f, groundCheckRight.position.z); 
+            groundCheckLeft.position = new Vector3(groundCheckLeft.position.x, groundCheckLeft.position.y + 1.01f, groundCheckLeft.position.z); 
         }
 
         else if (state == State.DARK) 
@@ -68,6 +87,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y + switchHeight, transform.position.z); 
             state = State.LIGHT; 
             jumpDirection = 1; 
+            groundCheckRight.position = new Vector3(groundCheckRight.position.x, groundCheckRight.position.y - 1.01f, groundCheckRight.position.z);
+            groundCheckLeft.position = new Vector3(groundCheckLeft.position.x, groundCheckLeft.position.y - 1.01f, groundCheckLeft.position.z);
         }
 
         // Flip gravity
@@ -75,7 +96,7 @@ public class PlayerController : MonoBehaviour
         
         
     }
-    
+    /*
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.tag == "Ground") 
         {
@@ -89,4 +110,10 @@ public class PlayerController : MonoBehaviour
             isGrounded = false; 
         }
     }
+
+    private bool IsGrounded() {
+        RaycastHit2D raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down * .1f, layerMask);
+        return raycastHit2d.collider != null;
+    }
+*/
 }
