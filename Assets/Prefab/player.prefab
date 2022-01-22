@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8033762190739144551}
   - component: {fileID: 7730620392433344374}
   m_Layer: 10
-  m_Name: Play 1
+  m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890571625605029342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.482883, y: -1.087, z: 0}
+  m_LocalPosition: {x: -2.482883, y: -1.071, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6012707206224672524}
@@ -155,7 +155,7 @@ MonoBehaviour:
   jumpDirection: 1
   isGrounded: 0
   groundCheck: {fileID: 6012707206224672524}
-  groundCheckRadius: 0.4
+  groundCheckRadius: 0.25
   collisionLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  maxLevel: 0
+  maxLevel: 4
 --- !u!95 &7730620392433344374
 Animator:
   serializedVersion: 3
@@ -225,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3832040524144609560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.033, y: -0.495, z: 0}
+  m_LocalPosition: {x: 0.063, y: -0.315, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1890571625605029338}
