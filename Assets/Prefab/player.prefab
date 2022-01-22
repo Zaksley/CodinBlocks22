@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8033762190739144551}
   - component: {fileID: 7730620392433344374}
   m_Layer: 10
-  m_Name: Player
+  m_Name: player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  maxLevel: 0
+  maxLevel: 9
 --- !u!95 &7730620392433344374
 Animator:
   serializedVersion: 3
