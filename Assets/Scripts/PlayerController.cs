@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f; 
     public float switchHeight = 2f; 
     public State state; 
+    public bool gotKey = false; 
 
     //jump
     public float jumpSpeed = 12f; 
@@ -39,8 +40,11 @@ public class PlayerController : MonoBehaviour
     {
         state = State.LIGHT; 
 
-        Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = true; 
-        Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = false; 
+        Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = false; 
+        Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = true; 
+
+        Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
+        Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
     }
 
     // Update is called once per frame
@@ -86,11 +90,11 @@ public class PlayerController : MonoBehaviour
             groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 1.02f, groundCheck.position.z); 
         
             // Show tilemaps
-            Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = false; 
-            Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = true; 
+            Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = true; 
+            Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = false; 
 
-            Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
-            Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
+            Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
+            Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
 
         }
 
@@ -106,16 +110,20 @@ public class PlayerController : MonoBehaviour
             groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y - 1.02f, groundCheck.position.z);
 
             // Show tilemaps
-            Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = true; 
-            Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = false; 
+            Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = false; 
+            Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = true; 
 
-            Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
-            Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
+            Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
+            Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
         }
 
         // Flip gravity
         this.gameObject.GetComponent<Rigidbody2D>().gravityScale = - this.gameObject.GetComponent<Rigidbody2D>().gravityScale; 
-        
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D other) 
+    {
         
     }
 
