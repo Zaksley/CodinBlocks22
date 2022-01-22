@@ -27,7 +27,6 @@ public class PlayerCollision : MonoBehaviour
             if (this.GetComponent<PlayerController>().gotKey)
             {
                 //Destroy(collision.gameObject);  
-                // Go to next level 
             }
         }
     }
