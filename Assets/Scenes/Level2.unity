@@ -199,27 +199,9 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4714283104023160428}
   m_PrefabAsset: {fileID: 0}
---- !u!1839735485 &372599491 stripped
-Tilemap:
-  m_CorrespondingSourceObject: {fileID: 4714283103854021807, guid: c67380e4d4d00bd45833785df80c9bc1,
-    type: 3}
-  m_PrefabInstance: {fileID: 4714283104023160428}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &695234099 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7192087851561409261, guid: 277fc393e803cb948af94b148009b8ca,
-    type: 3}
-  m_PrefabInstance: {fileID: 787454448}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &772119076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6847955844047066960, guid: ea113fb36b611094a9e7e35ea09bc055,
-    type: 3}
-  m_PrefabInstance: {fileID: 6847955843744910708}
-  m_PrefabAsset: {fileID: 0}
---- !u!1839735485 &772119079 stripped
-Tilemap:
-  m_CorrespondingSourceObject: {fileID: 6847955844047066963, guid: ea113fb36b611094a9e7e35ea09bc055,
     type: 3}
   m_PrefabInstance: {fileID: 6847955843744910708}
   m_PrefabAsset: {fileID: 0}
@@ -295,12 +277,6 @@ PrefabInstance:
 --- !u!4 &1484651521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3315922166782444135, guid: 46c89089f00d9f34b9fb6555b6b01584,
-    type: 3}
-  m_PrefabInstance: {fileID: 3315922166105816678}
-  m_PrefabAsset: {fileID: 0}
---- !u!1839735485 &1484651524 stripped
-Tilemap:
-  m_CorrespondingSourceObject: {fileID: 3315922166782444130, guid: 46c89089f00d9f34b9fb6555b6b01584,
     type: 3}
   m_PrefabInstance: {fileID: 3315922166105816678}
   m_PrefabAsset: {fileID: 0}
@@ -431,28 +407,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1789265482
+--- !u!1001 &1726992500
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1890571625605029337, guid: 0461d11647d5a0849873c9e5078483fa,
-        type: 3}
-      propertyPath: Tilemap_NormalBlocks
-      value: 
-      objectReference: {fileID: 772119079}
-    - target: {fileID: 1890571625605029337, guid: 0461d11647d5a0849873c9e5078483fa,
-        type: 3}
-      propertyPath: Tilemap_LightBlocks
-      value: 
-      objectReference: {fileID: 372599491}
-    - target: {fileID: 1890571625605029337, guid: 0461d11647d5a0849873c9e5078483fa,
-        type: 3}
-      propertyPath: Tilemap_DarkBlocks
-      value: 
-      objectReference: {fileID: 1484651524}
     - target: {fileID: 1890571625605029338, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -511,13 +472,8 @@ PrefabInstance:
     - target: {fileID: 1890571625605029342, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
       propertyPath: m_Name
-      value: Play 1
+      value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8033762190739144551, guid: 0461d11647d5a0849873c9e5078483fa,
-        type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 695234099}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0461d11647d5a0849873c9e5078483fa, type: 3}
 --- !u!1001 &1884986996
