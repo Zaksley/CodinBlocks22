@@ -30,9 +30,17 @@ public class PlayerController : MonoBehaviour
     public Tilemap Tilemap_LightBlocks; 
     public Tilemap Tilemap_DarkBlocks; 
 
+    public TileBase DarkTile;
+    public TileBase LightTile;
+
     // Sprites
     public Sprite darkSprite; 
     public Sprite lightSprite; 
+
+
+    //Animation
+    public Animator animator;
+    public SpriteRenderer spriteRenderer;
 
 
     // Start is called before the first frame update
@@ -44,7 +52,9 @@ public class PlayerController : MonoBehaviour
         Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = true; 
 
         Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
-        Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
+        Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false;
+
+        //Tilemap_NormalBlocks = GetComponent<Tilemap>(); 
     }
 
     // Update is called once per frame
@@ -61,6 +71,11 @@ public class PlayerController : MonoBehaviour
         {
             Switch(); 
         }
+
+        flip(movement.x);
+
+        float characterVelocity = Mathf.Abs(movement.x);
+        animator.SetFloat("Speed", characterVelocity);
     }
 
     void Jump() 
@@ -68,6 +83,18 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded )
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, jumpDirection * jumpSpeed), ForceMode2D.Impulse); 
+        }
+    }
+
+    void flip(float _velocity)
+    {
+        if (_velocity > 0.1f)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (_velocity < -0.1f)
+        {
+            spriteRenderer.flipX = true;
         }
     }
 
@@ -96,6 +123,10 @@ public class PlayerController : MonoBehaviour
             Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
             Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
 
+            Tilemap_NormalBlocks.SwapTile(LightTile,DarkTile);
+
+            animator.SetInteger("Dark", 1);
+
         }
 
         else if (state == State.DARK) 
@@ -115,6 +146,9 @@ public class PlayerController : MonoBehaviour
 
             Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
             Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
+
+            Tilemap_NormalBlocks.SwapTile(DarkTile, LightTile);
+            animator.SetInteger("Dark", 0);
         }
 
         // Flip gravity
