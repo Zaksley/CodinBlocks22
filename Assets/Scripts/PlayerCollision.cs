@@ -15,18 +15,18 @@ public class PlayerCollision : MonoBehaviour
         player = this.GetComponent<PlayerController>(); 
     }
 
-    void Update() {
-        
+    void Update() 
+    {
     }
 
-    private void TakeKey(Collision2D collision)
+    private void TakeKey(Collider2D collision)
     {
         Destroy(collision.gameObject);  
         this.GetComponent<PlayerController>().gotKey = true; 
         doorBox.enabled = true; 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         
         if (collision.gameObject.CompareTag("FireKey"))
         {
@@ -52,6 +52,12 @@ public class PlayerCollision : MonoBehaviour
                 }
             }
         }
+
+        else if (collision.gameObject.CompareTag("DeathCollider"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        }
+
     }
 
 }
