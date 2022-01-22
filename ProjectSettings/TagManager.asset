@@ -8,6 +8,8 @@ TagManager:
   - Dark Block
   - Normal Block
   - Light Block
+  - Key
+  - Door
   layers:
   - Default
   - TransparentFX
