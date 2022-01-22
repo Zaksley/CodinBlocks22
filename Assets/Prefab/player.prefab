@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchHeight: 2
   state: 0
-  moveSpeed: 1400
+  moveSpeed: 5
   gotKey: 0
   rb: {fileID: 1890571625605029341}
   jumpSpeed: 7.5

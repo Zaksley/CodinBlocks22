@@ -69,27 +69,27 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Restart")) Restart(); 
-        
+        /*
         float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
 
         Vector3 targetVelocity = new Vector2(horizontalMovement, rb.velocity.y);
         rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
-        
+        */
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayers);
         Jump(); 
-        /*
+        
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); 
         transform.position += movement * Time.deltaTime * moveSpeed; 
-        */
+        
         if (Input.GetButtonDown("Switch") && isGrounded ) 
         {
             Switch(); 
         }
 
-        flip(rb.velocity.x);
+        flip(movement.x);
 
-        float characterVelocity = Mathf.Abs(rb.velocity.x);
+        float characterVelocity = Mathf.Abs(movement.x);
         animator.SetFloat("Speed", characterVelocity);
     }
 
@@ -176,10 +176,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter2D(Collision2D other) 
-    {
-        
-    }
 
     
 
