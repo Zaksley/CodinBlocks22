@@ -12,6 +12,7 @@ TagManager:
   - Door
   - BlueKey
   - FireKey
+  - DeathCollider
   layers:
   - Default
   - TransparentFX
