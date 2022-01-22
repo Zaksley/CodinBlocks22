@@ -10,6 +10,8 @@ TagManager:
   - Light Block
   - Key
   - Door
+  - BlueKey
+  - FireKey
   layers:
   - Default
   - TransparentFX
@@ -19,10 +21,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Door
   - Platforms
   - Player
-  - 
+  - Key
   - 
   - 
   - 
@@ -46,4 +48,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Door
+    uniqueID: 2835107347
+    locked: 0
+  - name: Player
+    uniqueID: 4204986775
     locked: 0
