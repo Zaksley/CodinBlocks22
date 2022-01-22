@@ -11,10 +11,15 @@ public class PlayerController : MonoBehaviour
         DEAD, 
     }
 
-    public float moveSpeed = 5f; 
+    
     public float switchHeight = 2f; 
     public State state; 
+
+    // Move
+    public float moveSpeed = 5f; 
     public bool gotKey = false; 
+    public Rigidbody2D rb;
+    private Vector3 velocity = Vector3.zero;
 
     //jump
     public float jumpSpeed = 12f; 
@@ -59,22 +64,29 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
 
+
+
     void Update()
     {
+
+        float horizontalMovement = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
+
+        Vector3 targetVelocity = new Vector2(horizontalMovement, rb.velocity.y);
+        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetVelocity, ref velocity, .05f);
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayers);
         Jump(); 
-
+        /*
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); 
         transform.position += movement * Time.deltaTime * moveSpeed; 
-
+        */
         if (Input.GetButtonDown("Switch") && isGrounded ) 
         {
             Switch(); 
         }
 
-        flip(movement.x);
+        flip(rb.velocity.x);
 
-        float characterVelocity = Mathf.Abs(movement.x);
+        float characterVelocity = Mathf.Abs(rb.velocity.x);
         animator.SetFloat("Speed", characterVelocity);
     }
 

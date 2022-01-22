@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 1890571625605029338}
   - component: {fileID: 1890571625605029339}
   - component: {fileID: 1890571625605029340}
+  - component: {fileID: 8970549115348056819}
   - component: {fileID: 1890571625605029341}
   - component: {fileID: 1890571625605029337}
   - component: {fileID: 8033762190739144551}
   - component: {fileID: 7730620392433344374}
   m_Layer: 10
-  m_Name: player
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890571625605029342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.482883, y: -1.071, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6012707206224672524}
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890571625605029342}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -112,8 +113,24 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 0.65719056, y: 0.9047718}
   m_EdgeRadius: 0
+--- !u!70 &8970549115348056819
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890571625605029342}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.048020244, y: -0.013505638}
+  m_Size: {x: 0.65785575, y: 0.9009582}
+  m_Direction: 0
 --- !u!50 &1890571625605029341
 Rigidbody2D:
   serializedVersion: 4
@@ -129,7 +146,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -147,15 +164,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fca8b63d493b1649a28816ef5deb685, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   switchHeight: 2
   state: 0
+  moveSpeed: 1400
   gotKey: 0
-  jumpSpeed: 8
+  rb: {fileID: 1890571625605029341}
+  jumpSpeed: 7.5
   jumpDirection: 1
   isGrounded: 0
   groundCheck: {fileID: 6012707206224672524}
-  groundCheckRadius: 0.25
+  groundCheckRadius: 0.3
   collisionLayers:
     serializedVersion: 2
     m_Bits: 1
@@ -181,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  maxLevel: 4
+  maxLevel: 0
 --- !u!95 &7730620392433344374
 Animator:
   serializedVersion: 3
@@ -225,7 +243,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3832040524144609560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.063, y: -0.315, z: 0}
+  m_LocalPosition: {x: 0.055, y: -0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1890571625605029338}

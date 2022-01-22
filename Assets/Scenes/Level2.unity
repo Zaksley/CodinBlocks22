@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -606,6 +606,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1620366683}
     m_Modifications:
+    - target: {fileID: 3315922166782444132, guid: 46c89089f00d9f34b9fb6555b6b01584,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e0a9ac33e257f2048be1177366eeadfb, type: 2}
     - target: {fileID: 3315922166782444134, guid: 46c89089f00d9f34b9fb6555b6b01584,
         type: 3}
       propertyPath: m_Name
@@ -730,6 +735,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4714283103854021805, guid: c67380e4d4d00bd45833785df80c9bc1,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e0a9ac33e257f2048be1177366eeadfb, type: 2}
     - target: {fileID: 4714283103854021843, guid: c67380e4d4d00bd45833785df80c9bc1,
         type: 3}
       propertyPath: m_Name
@@ -799,6 +809,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6847955844047066961, guid: ea113fb36b611094a9e7e35ea09bc055,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: e0a9ac33e257f2048be1177366eeadfb, type: 2}
     - target: {fileID: 6847955844047066967, guid: ea113fb36b611094a9e7e35ea09bc055,
         type: 3}
       propertyPath: m_Name
