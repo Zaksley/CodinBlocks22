@@ -9,6 +9,7 @@ public class PlayerCollision : MonoBehaviour
     private BoxCollider2D doorBox; 
     public int maxLevel; 
     private PlayerController player; 
+    public Animator doorAnimator;
 
     void Start(){
         doorBox = door.GetComponent<BoxCollider2D>(); 
@@ -30,14 +31,20 @@ public class PlayerCollision : MonoBehaviour
         
         if (collision.gameObject.CompareTag("FireKey"))
         {
-            if (player.state == PlayerController.State.DARK) 
+            if (player.state == PlayerController.State.DARK)
+            { 
                 TakeKey(collision);
+                doorAnimator.SetInteger("key", 1);
+            }
         }
 
         else if (collision.gameObject.CompareTag("BlueKey"))
         {
             if (player.state == PlayerController.State.LIGHT) 
+            {
                 TakeKey(collision);
+                doorAnimator.SetInteger("key", 1);
+            }
         }
 
         else if (collision.gameObject.CompareTag("DoorBlue"))
