@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &982637381047444970
+--- !u!1 &2465323881534277004
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,36 +8,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9056196547567996170}
-  - component: {fileID: 594852407072705968}
+  - component: {fileID: 5925473465658371436}
+  - component: {fileID: 2870138091063209430}
   m_Layer: 10
-  m_Name: LightKeyBlue
+  m_Name: LightDoorBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9056196547567996170
+--- !u!4 &5925473465658371436
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982637381047444970}
+  m_GameObject: {fileID: 2465323881534277004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.008, y: -0.299, z: 0}
+  m_LocalPosition: {x: -0.019, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &594852407072705968
+--- !u!114 &2870138091063209430
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 982637381047444970}
+  m_GameObject: {fileID: 2465323881534277004}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
@@ -45,10 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 1
-  m_Color: {r: 0.13950695, g: 0.8720137, b: 0.8962264, a: 1}
-  m_Intensity: 1
-  m_LightVolumeOpacity: 1
+  m_FalloffIntensity: 0.6
+  m_Color: {r: 0.08503916, g: 0.77979606, b: 0.8584906, a: 1}
+  m_Intensity: 1.3
+  m_LightVolumeOpacity: 0.153
   m_ApplyToSortingLayers: 000000007f07e38c134efca84967cf7ffd46356c9701a3fa
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0

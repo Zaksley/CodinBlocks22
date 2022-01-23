@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps; 
 using UnityEngine.SceneManagement; 
+using UnityEngine.Experimental.Rendering.Universal;
 public class PlayerCollision : MonoBehaviour
 {
     public GameObject door; 
     private BoxCollider2D doorBox; 
+    private Light2D doorLight; 
+    private float intensity;
     public int maxLevel; 
     private PlayerController player; 
     public Animator doorAnimator;
 
     void Start(){
         doorBox = door.GetComponent<BoxCollider2D>(); 
+        doorLight = door.GetComponent<Light2D>(); 
+
         player = this.GetComponent<PlayerController>(); 
     }
 
@@ -25,6 +30,7 @@ public class PlayerCollision : MonoBehaviour
         Destroy(collision.gameObject);  
         this.GetComponent<PlayerController>().gotKey = true; 
         doorBox.enabled = true; 
+        door.GetComponent<NoCollisionDoor>().setIntensity(); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
