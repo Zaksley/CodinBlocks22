@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps; 
 using UnityEngine.SceneManagement; 
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -48,11 +49,24 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer;
 
+    // Lights
+    public Light2D globalLight;
+    public Light2D personnalLight; 
+    private Color red; 
+    private Color blue; 
+    [SerializeField] private float lightIntensity_White = 0.7f; 
+    [SerializeField] private float lightIntensity_Black = 0.2f; 
+
     // Start is called before the first frame update
     void Start()
     {
         state = State.LIGHT; 
 
+
+        blue = new Color32( 0x3A, 0xB6, 0xD9, 0xFF ); 
+        red = new Color32( 0xA7, 0x0A, 0x0A, 0xFF ); 
+
+        // Tilemaps 
         Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = false; 
         Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = true; 
 
@@ -61,9 +75,6 @@ public class PlayerController : MonoBehaviour
 
         //Tilemap_NormalBlocks = GetComponent<Tilemap>(); 
     }
-
-    // Update is called once per frame
-
 
 
     void Update()
@@ -147,6 +158,10 @@ public class PlayerController : MonoBehaviour
 
             animator.SetInteger("Dark", 1);
 
+            // Lights
+            globalLight.intensity = lightIntensity_Black; 
+            personnalLight.color = red; 
+
         }
 
         else if (state == State.DARK) 
@@ -169,6 +184,10 @@ public class PlayerController : MonoBehaviour
 
             Tilemap_NormalBlocks.SwapTile(DarkTile, LightTile);
             animator.SetInteger("Dark", 0);
+
+            // Lights
+            globalLight.intensity = lightIntensity_White; 
+            personnalLight.color = blue; 
         }
 
         // Flip gravity

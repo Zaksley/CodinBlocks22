@@ -26,7 +26,7 @@ TagManager:
   - Platforms
   - Player
   - Key
-  - 
+  - Background
   - 
   - 
   - 
@@ -50,8 +50,17 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 2363688831
+    locked: 0
   - name: Door
     uniqueID: 2835107347
+    locked: 0
+  - name: Key
+    uniqueID: 2144298825
+    locked: 0
+  - name: TileMap
+    uniqueID: 1815430909
     locked: 0
   - name: Player
     uniqueID: 4204986775
