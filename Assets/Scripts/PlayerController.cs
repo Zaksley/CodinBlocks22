@@ -57,6 +57,8 @@ public class PlayerController : MonoBehaviour
     public Light2D personnalLight; 
     private Color red; 
     private Color blue; 
+    private float offsetY = 0.219f; 
+    private float offsetX = 0.048f;
     [SerializeField] private float lightIntensity_White = 0.7f; 
     [SerializeField] private float lightIntensity_Black = 0.2f; 
 
@@ -64,7 +66,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         state = State.LIGHT; 
-
+        globalLight.intensity = lightIntensity_White; 
 
         blue = new Color32( 0x3A, 0xB6, 0xD9, 0xFF ); 
         red = new Color32( 0xA7, 0x0A, 0x0A, 0xFF ); 
@@ -168,6 +170,7 @@ public class PlayerController : MonoBehaviour
             // Lights
             globalLight.intensity = lightIntensity_Black; 
             personnalLight.color = red; 
+            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y - offsetY, transform.position.z);
 
         }
 
@@ -197,10 +200,13 @@ public class PlayerController : MonoBehaviour
             // Lights
             globalLight.intensity = lightIntensity_White; 
             personnalLight.color = blue; 
+            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z);
+            
         }
 
         // Flip gravity
         this.gameObject.GetComponent<Rigidbody2D>().gravityScale = - this.gameObject.GetComponent<Rigidbody2D>().gravityScale; 
+        
     }
 
 

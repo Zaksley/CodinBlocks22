@@ -300,7 +300,7 @@ PrefabInstance:
     - target: {fileID: 1890571625605029338, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.47
+      value: -2.59
       objectReference: {fileID: 0}
     - target: {fileID: 1890571625605029338, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
@@ -2244,7 +2244,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tilemap_DarkSprites
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2281479447851624037, guid: c67380e4d4d00bd45833785df80c9bc1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c67380e4d4d00bd45833785df80c9bc1, type: 3}
 --- !u!1001 &822611929
 PrefabInstance:
@@ -3698,7 +3699,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tilemap_LightSprites
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2281479447851624037, guid: c67380e4d4d00bd45833785df80c9bc1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c67380e4d4d00bd45833785df80c9bc1, type: 3}
 --- !u!1001 &1167204294
 PrefabInstance:
