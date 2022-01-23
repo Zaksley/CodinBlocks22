@@ -37,6 +37,9 @@ public class PlayerController : MonoBehaviour
     public Tilemap Tilemap_LightBlocks; 
     public Tilemap Tilemap_DarkBlocks; 
 
+    public Tilemap Tilemap_LightSprites; 
+    public Tilemap Tilemap_DarkSprites; 
+
     public TileBase DarkTile;
     public TileBase LightTile;
 
@@ -72,6 +75,8 @@ public class PlayerController : MonoBehaviour
         // Tilemaps 
         Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = false; 
         Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = true; 
+        Tilemap_LightSprites.GetComponent<TilemapRenderer>().enabled = false; 
+        Tilemap_DarkSprites.GetComponent<TilemapRenderer>().enabled = true; 
 
         Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
         Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false;
@@ -153,6 +158,8 @@ public class PlayerController : MonoBehaviour
             // Show tilemaps
             Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = true; 
             Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = false; 
+            Tilemap_LightSprites.GetComponent<TilemapRenderer>().enabled = true; 
+            Tilemap_DarkSprites.GetComponent<TilemapRenderer>().enabled = false; 
 
             Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
             Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
@@ -186,6 +193,8 @@ public class PlayerController : MonoBehaviour
             // Show tilemaps
             Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = false; 
             Tilemap_DarkBlocks.GetComponent<TilemapRenderer>().enabled = true; 
+            Tilemap_LightSprites.GetComponent<TilemapRenderer>().enabled = false; 
+            Tilemap_DarkSprites.GetComponent<TilemapRenderer>().enabled = true; 
 
             Tilemap_LightBlocks.GetComponent<TilemapCollider2D>().enabled = true; 
             Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false; 
