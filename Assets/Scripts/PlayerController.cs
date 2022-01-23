@@ -61,6 +61,11 @@ public class PlayerController : MonoBehaviour
     private float offsetX = 0.048f;
     [SerializeField] private float lightIntensity_White = 0.7f; 
     [SerializeField] private float lightIntensity_Black = 0.2f; 
+    public List<Light2D> BlueLights; 
+    public List<Light2D> RedLights; 
+
+    private int BlueIntensity = 1;
+    private int RedIntensity = 1; 
 
     // Musics
     public AudioHandler audioHandler;
@@ -84,6 +89,11 @@ public class PlayerController : MonoBehaviour
         Tilemap_DarkBlocks.GetComponent<TilemapCollider2D>().enabled = false;
 
         //Tilemap_NormalBlocks = GetComponent<Tilemap>(); 
+
+        BlueLights = Tilemap_LightBlocks.GetComponent<CreateLights_Tilemap>().Lights; 
+        RedLights = Tilemap_DarkBlocks.GetComponent<CreateLights_Tilemap>().Lights; 
+        SetIntensity_Light(BlueLights, 0);
+        SetIntensity_Light(RedLights, RedIntensity);
     }
 
 
@@ -175,6 +185,9 @@ public class PlayerController : MonoBehaviour
             personnalLight.color = red; 
             GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y - offsetY, transform.position.z);
 
+            SetIntensity_Light(BlueLights, BlueIntensity);
+            SetIntensity_Light(RedLights, 0);
+
 
             //Musics
             audioHandler.fadepos();
@@ -210,6 +223,9 @@ public class PlayerController : MonoBehaviour
             personnalLight.color = blue; 
             GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z);
 
+            SetIntensity_Light(BlueLights, 0);
+            SetIntensity_Light(RedLights, RedIntensity);
+
             //Musics
             audioHandler.fadeneg();
             audioHandler.soundup();
@@ -221,8 +237,11 @@ public class PlayerController : MonoBehaviour
         
     }
 
-
-
-    
-
+    private void SetIntensity_Light(List<Light2D> L, int intensity) 
+    {
+        for(int i=0; i<L.Count; i++)
+        {
+            L[i].intensity = intensity; 
+        }
+    }
 }
