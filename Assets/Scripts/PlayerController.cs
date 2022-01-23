@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float lightIntensity_White = 0.7f; 
     [SerializeField] private float lightIntensity_Black = 0.2f; 
 
+    // Musics
+    public AudioHandler audioHandler;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -162,6 +165,11 @@ public class PlayerController : MonoBehaviour
             globalLight.intensity = lightIntensity_Black; 
             personnalLight.color = red; 
 
+
+            //Musics
+            audioHandler.fadepos();
+            audioHandler.sounddown();
+
         }
 
         else if (state == State.DARK) 
@@ -188,6 +196,10 @@ public class PlayerController : MonoBehaviour
             // Lights
             globalLight.intensity = lightIntensity_White; 
             personnalLight.color = blue; 
+
+            //Musics
+            audioHandler.fadeneg();
+            audioHandler.soundup();
         }
 
         // Flip gravity
