@@ -40,9 +40,22 @@ public class PlayerCollision : MonoBehaviour
                 TakeKey(collision);
         }
 
-        else if (collision.gameObject.CompareTag("Door"))
+        else if (collision.gameObject.CompareTag("DoorBlue"))
         {
-            if (this.GetComponent<PlayerController>().gotKey)
+            if (this.GetComponent<PlayerController>().gotKey && this.GetComponent<PlayerController>().state == PlayerController.State.LIGHT)
+            {
+                if (SceneManager.GetActiveScene().buildIndex != maxLevel) 
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+                else
+                {
+                    // Go endgame 
+                }
+            }
+        }
+
+        else if (collision.gameObject.CompareTag("DoorRed"))
+        {
+            if (this.GetComponent<PlayerController>().gotKey && this.GetComponent<PlayerController>().state == PlayerController.State.DARK)
             {
                 if (SceneManager.GetActiveScene().buildIndex != maxLevel) 
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
@@ -57,7 +70,5 @@ public class PlayerCollision : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         }
-
     }
-
 }
