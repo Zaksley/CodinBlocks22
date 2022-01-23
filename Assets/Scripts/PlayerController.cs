@@ -92,7 +92,6 @@ public class PlayerController : MonoBehaviour
 
         BlueLights = Tilemap_LightBlocks.GetComponent<CreateLights_Tilemap>().Lights; 
         RedLights = Tilemap_DarkBlocks.GetComponent<CreateLights_Tilemap>().Lights; 
-
         SetIntensity_Light(BlueLights, 0);
         SetIntensity_Light(RedLights, RedIntensity);
     }

@@ -10,10 +10,8 @@ public class CreateLights_Tilemap : MonoBehaviour
     public Light2D light; 
     public List<Light2D> Lights = new List<Light2D>(); 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Tilemap tilemap = GetComponent<Tilemap>();
+    void Awake() {
+         Tilemap tilemap = GetComponent<Tilemap>();
 
         BoundsInt bounds = tilemap.cellBounds;
 
@@ -25,6 +23,12 @@ public class CreateLights_Tilemap : MonoBehaviour
                 Lights.Add(Instantiate(light, cellPosition, Quaternion.identity));
             }
         }
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+       
 
     }
 
