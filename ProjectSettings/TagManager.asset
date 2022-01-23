@@ -15,6 +15,7 @@ TagManager:
   - DeathCollider
   - DoorRed
   - DoorBlue
+  - _music
   layers:
   - Default
   - TransparentFX

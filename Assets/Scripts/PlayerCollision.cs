@@ -14,11 +14,20 @@ public class PlayerCollision : MonoBehaviour
     private PlayerController player; 
     public Animator doorAnimator;
 
+    private GameObject getGO;
+    public AudioHandler audioHandler;
+
+    
+
     void Start(){
         doorBox = door.GetComponent<BoxCollider2D>(); 
         doorLight = door.GetComponent<Light2D>(); 
 
         player = this.GetComponent<PlayerController>(); 
+
+        //Music 
+        getGO = GameObject.Find("MainSource");
+        audioHandler = getGO.GetComponent<AudioHandler>();
     }
 
     void Update() 
@@ -81,6 +90,7 @@ public class PlayerCollision : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("DeathCollider"))
         {
+            audioHandler.fadeneg();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         }
     }

@@ -68,6 +68,7 @@ public class PlayerController : MonoBehaviour
     private int RedIntensity = 1; 
 
     // Musics
+    private GameObject getGO;
     public AudioHandler audioHandler;
 
     // Start is called before the first frame update
@@ -90,10 +91,17 @@ public class PlayerController : MonoBehaviour
 
         //Tilemap_NormalBlocks = GetComponent<Tilemap>(); 
 
+
+        
         BlueLights = Tilemap_LightBlocks.GetComponent<CreateLights_Tilemap>().Lights; 
         RedLights = Tilemap_DarkBlocks.GetComponent<CreateLights_Tilemap>().Lights; 
         SetIntensity_Light(BlueLights, 0);
         SetIntensity_Light(RedLights, RedIntensity);
+        // get audio game obj
+        getGO = GameObject.Find("MainSource");
+        audioHandler = getGO.GetComponent<AudioHandler>();
+
+        audioHandler.fadeneg();
     }
 
 
@@ -135,6 +143,8 @@ public class PlayerController : MonoBehaviour
     private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+        // change music 
+        audioHandler.fadeneg();
     }
 
     void flip(float _velocity)

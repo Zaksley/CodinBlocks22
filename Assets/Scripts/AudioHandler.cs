@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio; 
 
 
 public static class AudioFade {
@@ -10,7 +11,7 @@ public static class AudioFade {
  
         while (source1.volume > 0) {
             source1.volume -= startVolume * Time.deltaTime / FadeTime;
-            source2.volume += 1 - (startVolume * Time.deltaTime / FadeTime);
+            source2.volume += (startVolume * Time.deltaTime / FadeTime);
             yield return null;
         }
     }
@@ -27,7 +28,6 @@ public class AudioHandler : MonoBehaviour
     public AudioClip down;
 
     private IEnumerator coroutine;
-
 
     void Start()
     {
