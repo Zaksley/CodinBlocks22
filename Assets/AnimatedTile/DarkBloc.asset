@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: DarkBloc
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 21300000, guid: 7ba8018c6fb91d9448a30db117c1d73d, type: 3}
+  - {fileID: 21300000, guid: 67b803a19a88ff540a88dbe95b38ec2f, type: 3}
+  - {fileID: 21300000, guid: fc7d8317f1512654f8dd34b1727248af, type: 3}
+  - {fileID: 21300000, guid: 6076361ae0c0561408e68447b1c1499d, type: 3}
+  - {fileID: 21300000, guid: 25c4ab736946f3344ac494d60f0d253b, type: 3}
+  - {fileID: 21300000, guid: 10f901565c9351f46b3660660a334249, type: 3}
+  m_MinSpeed: 10
+  m_MaxSpeed: 10
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
