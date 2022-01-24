@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7909422015901811233}
   - component: {fileID: 7909422015901811232}
   - component: {fileID: 7909422015901811235}
-  - component: {fileID: 4566274064149421570}
   m_Layer: 0
   m_Name: Tilemap_LaserBlue
   m_TagString: LaserBlue
@@ -185,17 +184,3 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &4566274064149421570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7909422015901811237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a62523b7f0bb9ab419dc5ad2c2426288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light: {fileID: 5583368577460094931, guid: 1c44f9a78e4d3ea44922f6d9a7f0c807, type: 3}
-  Lights: []

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7162875401528548}
   - component: {fileID: 7162875401528549}
   - component: {fileID: 7162875401528550}
-  - component: {fileID: 7119671212561363398}
   m_Layer: 0
   m_Name: Tilemap_LaserRed
   m_TagString: LaserRed
@@ -189,17 +188,3 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
---- !u!114 &7119671212561363398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7162875401528544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a62523b7f0bb9ab419dc5ad2c2426288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  light: {fileID: 4882052604694878213, guid: 934aa1cbb95c6ab4eabd38992006d439, type: 3}
-  Lights: []
