@@ -7,6 +7,13 @@ public class pauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenuUI;
+
+    private GameObject getO;
+    private DontDestroy dd;
+
+
+    private GameObject getP;
+    private PlayerController play;
     // Update is called once per frame
     void Update()
     {
@@ -22,13 +29,21 @@ public class pauseMenu : MonoBehaviour
             }
         }
     }
-
+/*
+    private void Start() {
+        getO = GameObject.Find("MainSource");
+        dd = getO.GetComponent<DontDestroy>();
+        getP = GameObject.Find("player");
+        play = getP.GetComponent<PlayerController>();
+    }
+*/
     void Paused()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused = true;
-        PlayerController.instance.stopMovement();
+        Debug.Log("devrait s'arreter");
+        GameObject.Find("player").GetComponent<PlayerController>().pause = true;
     }
 
     public void Resume()
@@ -36,12 +51,12 @@ public class pauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;
-        PlayerController.instance.resumeMovement();
+        GameObject.Find("player").GetComponent<PlayerController>().resumeMovement();
     }
 
     public void LoadMainMenu()
     {
-        DontDestroy.instance.RemoveFromDontDestroy();
+        dd.RemoveFromDontDestroy();
         Resume();
         SceneManager.LoadScene("Menu");
     }

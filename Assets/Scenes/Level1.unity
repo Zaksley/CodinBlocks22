@@ -1638,8 +1638,6 @@ MonoBehaviour:
   - {fileID: 909695016}
   - {fileID: 1240409069}
   - {fileID: 1510167748}
-  objs:
-  - {fileID: 467093440}
 --- !u!82 &467093443
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3274,6 +3272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1332358201}
+  dd: {fileID: 0}
 --- !u!4 &1240409071
 Transform:
   m_ObjectHideFlags: 0
@@ -4724,12 +4723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 183178203}
     m_Modifications:
-    - target: {fileID: 1126899161686805243, guid: 208f897353cb8334790da0f64ddb6954,
-        type: 3}
-      propertyPath: m_AnimatedTiles.Array.data[3].second.m_AnimatedSprites.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 5fc2890bdcf112e46950b0b88ffe4a28,
-        type: 3}
     - target: {fileID: 4714283103854021804, guid: c67380e4d4d00bd45833785df80c9bc1,
         type: 3}
       propertyPath: m_RootOrder
@@ -5033,6 +5026,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tilemap_LightSprites
       objectReference: {fileID: 0}
+    - target: {fileID: 1126899161686805243, guid: 208f897353cb8334790da0f64ddb6954,
+        type: 3}
+      propertyPath: m_AnimatedTiles.Array.data[3].second.m_AnimatedSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5fc2890bdcf112e46950b0b88ffe4a28,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c67380e4d4d00bd45833785df80c9bc1, type: 3}
 --- !u!1001 &1383358020

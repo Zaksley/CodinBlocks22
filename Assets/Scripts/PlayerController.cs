@@ -78,17 +78,7 @@ public class PlayerController : MonoBehaviour
 
 
     public static PlayerController instance;
-    void Awake(){
-        //objs = GameObject.FindGameObjectsWithTag("_music");
 
-        if (instance != null)
-        {
-            Debug.LogWarning("Instance de Player inexistante");
-            return;
-        }
-
-        instance = this;
-    }
     void Start()
     {
         state = State.LIGHT; 
