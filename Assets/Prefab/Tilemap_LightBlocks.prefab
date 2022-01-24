@@ -180,3 +180,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   light: {fileID: 3065734050743669639, guid: 15db8c39ec677bc4cb0f0a7571fec3ef, type: 3}
+  Lights: []

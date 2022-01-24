@@ -20,16 +20,11 @@ public class PlayerCollision : MonoBehaviour
     //Lasers
     public Tilemap LaserBlue;
     public Tilemap LaserRed; 
-    private BoxCollider2D LaserRedBox; 
-    private BoxCollider2D LaserBlueBox; 
-
     
 
     void Start(){
         doorBox = door.GetComponent<BoxCollider2D>(); 
         doorLight = door.GetComponent<Light2D>(); 
-        LaserRedBox = LaserRed.GetComponent<BoxCollider2D>();
-        LaserBlueBox = LaserRed.GetComponent<BoxCollider2D>();
 
         player = this.GetComponent<PlayerController>(); 
 
@@ -50,15 +45,14 @@ public class PlayerCollision : MonoBehaviour
         door.GetComponent<NoCollisionDoor>().setIntensity(); 
     }
 
-    private void SwitchLaserBlue(Collider2D collision)
+    private void SwitchLaser(Tilemap laser, Collider2D collision)
     { 
-        LaserBlueBox.enabled = false; 
+        laser.GetComponent<TilemapRenderer>().enabled = false; 
+        laser.GetComponent<TilemapCollider2D>().enabled = false; 
+
+        collision.GetComponent<SpriteRenderer>().flipX = true; 
     }
 
-    private void SwitchLaserRed(Collider2D collision)
-    { 
-        LaserRedBox.enabled = false; 
-    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         
@@ -113,12 +107,12 @@ public class PlayerCollision : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("SwitchBlue"))
         {
-            SwitchLaserBlue(collision);
+            SwitchLaser(LaserBlue, collision);
         }
 
         else if (collision.gameObject.CompareTag("SwitchRed"))
         {
-            SwitchLaserRed(collision);
+            SwitchLaser(LaserRed, collision);
         }
 
         else if (collision.gameObject.CompareTag("LaserBlue"))
