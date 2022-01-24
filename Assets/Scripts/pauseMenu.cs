@@ -29,14 +29,16 @@ public class pauseMenu : MonoBehaviour
             }
         }
     }
-/*
+
     private void Start() {
         getO = GameObject.Find("MainSource");
         dd = getO.GetComponent<DontDestroy>();
+        /*
         getP = GameObject.Find("player");
         play = getP.GetComponent<PlayerController>();
+        */
     }
-*/
+
     void Paused()
     {
         pauseMenuUI.SetActive(true);
