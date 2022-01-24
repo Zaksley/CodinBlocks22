@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class DontDestroy : MonoBehaviour
 {
 
-    public GameObject[] objs;
+    public GameObject[] objets;
 
     public static DontDestroy instance;
+    public GameObject[] objs;
     void Awake(){
-        //objs = GameObject.FindGameObjectsWithTag("_music");
+        objs = GameObject.FindGameObjectsWithTag("_music");
 
         if (instance != null)
         {
@@ -24,7 +25,13 @@ public class DontDestroy : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
         foreach (var element in objs)
+        {
+            DontDestroyOnLoad(element);
+        }
+
+        foreach (var element in objets)
         {
             DontDestroyOnLoad(element);
         }
@@ -33,6 +40,10 @@ public class DontDestroy : MonoBehaviour
 
     public void RemoveFromDontDestroy()
     {
+        foreach (var element in objets)
+        {
+            SceneManager.MoveGameObjectToScene(element,SceneManager.GetActiveScene());
+        }
         foreach (var element in objs)
         {
             SceneManager.MoveGameObjectToScene(element,SceneManager.GetActiveScene());
