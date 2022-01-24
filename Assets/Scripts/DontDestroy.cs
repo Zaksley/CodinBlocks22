@@ -10,7 +10,9 @@ public class DontDestroy : MonoBehaviour
 
     public static DontDestroy instance;
     public GameObject[] objs;
+
     void Awake(){
+
         objs = GameObject.FindGameObjectsWithTag("_music");
 
         if (instance != null)
@@ -18,12 +20,12 @@ public class DontDestroy : MonoBehaviour
             Debug.LogWarning("Instance de DontDestroy inexistante");
             return;
         }
-
+        
         instance = this;
 
         if (objs.Length > 1)
         {
-            Destroy(this.gameObject);
+            Destroy(objs[1]);
         }
 
         foreach (var element in objs)

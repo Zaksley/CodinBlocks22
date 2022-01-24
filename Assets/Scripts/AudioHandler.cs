@@ -26,6 +26,8 @@ public class AudioHandler : MonoBehaviour
     public AudioClip negative;
     public AudioClip up;
     public AudioClip down;
+    public AudioClip pickup;
+    public AudioClip portal;
 
     private IEnumerator coroutine;
 
@@ -54,6 +56,16 @@ public class AudioHandler : MonoBehaviour
     public void sounddown(){
         src1.PlayOneShot(down);
         src2.PlayOneShot(down);
+    }
+    
+    public void soundpickup(){
+        src1.PlayOneShot(pickup);
+        src2.PlayOneShot(pickup);
+    }
+
+    public void soundportal(){
+        src1.PlayOneShot(portal);
+        src2.PlayOneShot(portal);
     }
 
     public void fadepos(){

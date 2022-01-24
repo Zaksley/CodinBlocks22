@@ -47,6 +47,8 @@ public class PlayerCollision : MonoBehaviour
         this.GetComponent<PlayerController>().gotKey = true; 
         doorBox.enabled = true; 
         door.GetComponent<NoCollisionDoor>().setIntensity(); 
+
+        audioHandler.soundpickup();
     }
 
     private void SwitchLaser(Tilemap laser, Collider2D collision)
@@ -105,8 +107,10 @@ public class PlayerCollision : MonoBehaviour
         {
             if (this.GetComponent<PlayerController>().gotKey && this.GetComponent<PlayerController>().state == PlayerController.State.LIGHT)
             {
-                if (SceneManager.GetActiveScene().buildIndex != maxLevel) 
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+                if (SceneManager.GetActiveScene().buildIndex != maxLevel){
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    audioHandler.soundportal();
+                } 
                 else
                 {
                     // Go endgame 
@@ -118,8 +122,10 @@ public class PlayerCollision : MonoBehaviour
         {
             if (this.GetComponent<PlayerController>().gotKey && this.GetComponent<PlayerController>().state == PlayerController.State.DARK)
             {
-                if (SceneManager.GetActiveScene().buildIndex != maxLevel) 
+                if (SceneManager.GetActiveScene().buildIndex != maxLevel){
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
+                    audioHandler.soundportal();
+                }
                 else
                 {
                     // Go endgame 
