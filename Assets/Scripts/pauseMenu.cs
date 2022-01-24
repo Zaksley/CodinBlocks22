@@ -29,16 +29,16 @@ public class pauseMenu : MonoBehaviour
             }
         }
     }
-
+/*
     private void Start() {
         getO = GameObject.Find("MainSource");
         dd = getO.GetComponent<DontDestroy>();
-        /*
+        
         getP = GameObject.Find("player");
         play = getP.GetComponent<PlayerController>();
-        */
+        
     }
-
+*/
     void Paused()
     {
         pauseMenuUI.SetActive(true);
@@ -58,7 +58,7 @@ public class pauseMenu : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        dd.RemoveFromDontDestroy();
+        GameObject.Find("MainSource").GetComponent<DontDestroy>().RemoveFromDontDestroy();
         Resume();
         SceneManager.LoadScene("Menu");
     }
