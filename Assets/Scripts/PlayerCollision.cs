@@ -20,6 +20,8 @@ public class PlayerCollision : MonoBehaviour
     //Lasers
     public Tilemap LaserBlue;
     public Tilemap LaserRed; 
+    public Sprite SwitchLight; 
+    public Sprite SwitchDark; 
     
 
     void Start(){
@@ -51,6 +53,22 @@ public class PlayerCollision : MonoBehaviour
         laser.GetComponent<TilemapCollider2D>().enabled = false; 
 
         collision.GetComponent<SpriteRenderer>().flipX = true; 
+    }
+
+    private void SwitchPlayer(Collider2D collision, PlayerController.State Color)
+    {
+        if (Color == PlayerController.State.LIGHT)
+        {
+            //collision.GetComponent<SpriteRenderer>().flipX = true; 
+            collision.GetComponent<SpriteRenderer>().sprite = SwitchDark; 
+        }
+        else if (Color == PlayerController.State.DARK)
+        {
+            //collision.GetComponent<SpriteRenderer>().flipX = false; 
+            collision.GetComponent<SpriteRenderer>().sprite = SwitchLight; 
+        }
+
+        this.GetComponent<PlayerController>().Switch(); 
     }
 
 
@@ -102,7 +120,7 @@ public class PlayerCollision : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("DeathCollider"))
         {
-            Respawn(); 
+            this.GetComponent<PlayerController>().Restart();  
         }
 
         else if (collision.gameObject.CompareTag("SwitchBlue"))
@@ -115,25 +133,23 @@ public class PlayerCollision : MonoBehaviour
             SwitchLaser(LaserRed, collision);
         }
 
+        else if (collision.gameObject.CompareTag("SwitchPlayer"))
+        {
+            SwitchPlayer(collision, this.GetComponent<PlayerController>().state); 
+        }
+
         else if (collision.gameObject.CompareTag("LaserBlue"))
         {
             if (this.GetComponent<PlayerController>().state == PlayerController.State.DARK) {
-                Respawn(); 
+                this.GetComponent<PlayerController>().Restart(); 
             }
         }
 
         else if (collision.gameObject.CompareTag("LaserRed")){
             if (this.GetComponent<PlayerController>().state == PlayerController.State.LIGHT) 
             {
-                Respawn(); 
+                this.GetComponent<PlayerController>().Restart(); 
             }
         }
-    }
-
-
-    private void Respawn()
-    {
-        audioHandler.fadeneg();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 }

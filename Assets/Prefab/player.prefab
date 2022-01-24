@@ -215,6 +215,8 @@ MonoBehaviour:
   LaserBlue: {fileID: 7909422015901811233, guid: 09069f43b98427540af911bd735fbd8f,
     type: 3}
   LaserRed: {fileID: 7162875401528548, guid: 164ec6aaa4b9b9d4587bcf33e6b1db77, type: 3}
+  SwitchLight: {fileID: 21300000, guid: b8a8299857d6d884fbb1df121f6f6836, type: 3}
+  SwitchDark: {fileID: 21300000, guid: 14cbab2f4f62fa8449d48b008a5cfbb2, type: 3}
 --- !u!95 &7730620392433344374
 Animator:
   serializedVersion: 3

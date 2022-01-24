@@ -20,6 +20,7 @@ TagManager:
   - LaserRed
   - SwitchBlue
   - SwitchRed
+  - SwitchPlayer
   layers:
   - Default
   - TransparentFX

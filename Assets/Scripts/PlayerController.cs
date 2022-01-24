@@ -142,7 +142,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Restart()
+    public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
         // change music 
@@ -167,9 +167,9 @@ public class PlayerController : MonoBehaviour
     }
 
  
-    private void TranslatePlayer() 
+    public void TranslatePlayer() 
     {
-        if (state == State.DARK)
+        if (this.gameObject.GetComponent<SpriteRenderer>().flipY == false)
         {
             this.gameObject.GetComponent<SpriteRenderer>().sprite = darkSprite; 
             this.gameObject.GetComponent<SpriteRenderer>().flipY = true;
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
             groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 1.02f, groundCheck.position.z); 
             GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y - offsetY, transform.position.z);
         }
-        else if (state == State.LIGHT)
+        else if (this.gameObject.GetComponent<SpriteRenderer>().flipY == true)
         {   
             this.gameObject.GetComponent<SpriteRenderer>().sprite = lightSprite; 
             this.gameObject.GetComponent<SpriteRenderer>().flipY = false;
@@ -194,7 +194,7 @@ public class PlayerController : MonoBehaviour
         this.gameObject.GetComponent<Rigidbody2D>().gravityScale = - this.gameObject.GetComponent<Rigidbody2D>().gravityScale; 
     }
 
-    void Switch() 
+    public void Switch() 
     {
         if (state == State.LIGHT)
         {
