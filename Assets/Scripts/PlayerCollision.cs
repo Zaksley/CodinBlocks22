@@ -117,13 +117,13 @@ public class PlayerCollision : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("LaserBlue"))
         {
-            if (this.GetComponent<PlayerController>().state == PlayerController.State.LIGHT) {
+            if (this.GetComponent<PlayerController>().state == PlayerController.State.DARK) {
                 Respawn(); 
             }
         }
 
         else if (collision.gameObject.CompareTag("LaserRed")){
-            if (this.GetComponent<PlayerController>().state == PlayerController.State.DARK) 
+            if (this.GetComponent<PlayerController>().state == PlayerController.State.LIGHT) 
             {
                 Respawn(); 
             }
