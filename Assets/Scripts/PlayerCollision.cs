@@ -57,17 +57,24 @@ public class PlayerCollision : MonoBehaviour
         collision.GetComponent<SpriteRenderer>().flipX = true; 
     }
 
-    private void SwitchPlayer(Collider2D collision, PlayerController.State Color)
+    private void SwitchPlayer(PlayerController.State Color)
     {
         if (Color == PlayerController.State.LIGHT)
         {
-            //collision.GetComponent<SpriteRenderer>().flipX = true; 
-            collision.GetComponent<SpriteRenderer>().sprite = SwitchDark; 
+            GameObject[] switches = GameObject.FindGameObjectsWithTag("SwitchPlayer");
+            foreach (GameObject switchplayer in switches)
+            {
+                switchplayer.GetComponent<SpriteRenderer>().sprite = SwitchDark;
+            } 
         }
         else if (Color == PlayerController.State.DARK)
         {
-            //collision.GetComponent<SpriteRenderer>().flipX = false; 
-            collision.GetComponent<SpriteRenderer>().sprite = SwitchLight; 
+
+            GameObject[] switches = GameObject.FindGameObjectsWithTag("SwitchPlayer");
+            foreach (GameObject switchplayer in switches)
+            {
+                switchplayer.GetComponent<SpriteRenderer>().sprite = SwitchLight;
+            } 
         }
 
         this.GetComponent<PlayerController>().Switch(); 
@@ -137,7 +144,7 @@ public class PlayerCollision : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("SwitchPlayer"))
         {
-            SwitchPlayer(collision, this.GetComponent<PlayerController>().state); 
+            SwitchPlayer(this.GetComponent<PlayerController>().state); 
         }
 
         else if (collision.gameObject.CompareTag("LaserBlue"))
