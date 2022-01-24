@@ -16,6 +16,10 @@ TagManager:
   - DoorRed
   - DoorBlue
   - _music
+  - LaserBlue
+  - LaserRed
+  - SwitchBlue
+  - SwitchRed
   layers:
   - Default
   - TransparentFX
@@ -67,6 +71,9 @@ TagManager:
     locked: 0
   - name: TileMap Sprite
     uniqueID: 375935027
+    locked: 0
+  - name: Laser
+    uniqueID: 1173718841
     locked: 0
   - name: Player
     uniqueID: 4204986775

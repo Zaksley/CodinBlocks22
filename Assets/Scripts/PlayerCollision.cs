@@ -17,11 +17,19 @@ public class PlayerCollision : MonoBehaviour
     private GameObject getGO;
     public AudioHandler audioHandler;
 
+    //Lasers
+    public Tilemap LaserBlue;
+    public Tilemap LaserRed; 
+    private BoxCollider2D LaserRedBox; 
+    private BoxCollider2D LaserBlueBox; 
+
     
 
     void Start(){
         doorBox = door.GetComponent<BoxCollider2D>(); 
         doorLight = door.GetComponent<Light2D>(); 
+        LaserRedBox = LaserRed.GetComponent<BoxCollider2D>();
+        LaserBlueBox = LaserRed.GetComponent<BoxCollider2D>();
 
         player = this.GetComponent<PlayerController>(); 
 
@@ -40,6 +48,16 @@ public class PlayerCollision : MonoBehaviour
         this.GetComponent<PlayerController>().gotKey = true; 
         doorBox.enabled = true; 
         door.GetComponent<NoCollisionDoor>().setIntensity(); 
+    }
+
+    private void SwitchLaserBlue(Collider2D collision)
+    { 
+        LaserBlueBox.enabled = false; 
+    }
+
+    private void SwitchLaserRed(Collider2D collision)
+    { 
+        LaserRedBox.enabled = false; 
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
@@ -90,8 +108,38 @@ public class PlayerCollision : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("DeathCollider"))
         {
-            audioHandler.fadeneg();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
+            Respawn(); 
         }
+
+        else if (collision.gameObject.CompareTag("SwitchBlue"))
+        {
+            SwitchLaserBlue(collision);
+        }
+
+        else if (collision.gameObject.CompareTag("SwitchRed"))
+        {
+            SwitchLaserRed(collision);
+        }
+
+        else if (collision.gameObject.CompareTag("LaserBlue"))
+        {
+            if (this.GetComponent<PlayerController>().state == PlayerController.State.LIGHT) {
+                Respawn(); 
+            }
+        }
+
+        else if (collision.gameObject.CompareTag("LaserRed")){
+            if (this.GetComponent<PlayerController>().state == PlayerController.State.DARK) 
+            {
+                Respawn(); 
+            }
+        }
+    }
+
+
+    private void Respawn()
+    {
+        audioHandler.fadeneg();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); 
     }
 }
