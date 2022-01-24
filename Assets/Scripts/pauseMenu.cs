@@ -11,7 +11,7 @@ public class pauseMenu : MonoBehaviour
     private GameObject getO;
     private DontDestroy dd;
 
-
+    private GameObject[] players;
     private GameObject getP;
     private PlayerController play;
     // Update is called once per frame
@@ -45,7 +45,12 @@ public class pauseMenu : MonoBehaviour
         Time.timeScale = 0;
         gameIsPaused = true;
         Debug.Log("devrait s'arreter");
-        GameObject.Find("player").GetComponent<PlayerController>().pause = true;
+        //GameObject.Find("player").GetComponent<PlayerController>().pause = true;
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject player in players)
+        {
+            player.GetComponent<PlayerController>().stopMovement();
+        }
     }
 
     public void Resume()
@@ -53,7 +58,11 @@ public class pauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;
-        GameObject.Find("player").GetComponent<PlayerController>().resumeMovement();
+        players = GameObject.FindGameObjectsWithTag("Player");
+        foreach(GameObject player in players)
+        {
+            player.GetComponent<PlayerController>().resumeMovement();
+        }
     }
 
     public void LoadMainMenu()

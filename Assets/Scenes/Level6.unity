@@ -280,7 +280,7 @@ PrefabInstance:
     - target: {fileID: 1890571625605029342, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
       propertyPath: m_Name
-      value: player (1)
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 8033762190739144551, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
@@ -3261,7 +3261,7 @@ PrefabInstance:
     - target: {fileID: 4714283103854021807, guid: c67380e4d4d00bd45833785df80c9bc1,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[1].second.m_AnimationSpeed
-      value: 10.000001
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4714283103854021807, guid: c67380e4d4d00bd45833785df80c9bc1,
         type: 3}
@@ -3485,7 +3485,7 @@ PrefabInstance:
     - target: {fileID: 4714283103854021807, guid: c67380e4d4d00bd45833785df80c9bc1,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[5].second.m_AnimationSpeed
-      value: 10.000001
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4714283103854021807, guid: c67380e4d4d00bd45833785df80c9bc1,
         type: 3}

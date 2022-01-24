@@ -2099,7 +2099,7 @@ PrefabInstance:
     - target: {fileID: 2083665310372157350, guid: cdf912e1970538647ad07b028ff36418,
         type: 3}
       propertyPath: m_AnimatedTiles.Array.data[9].second.m_AnimationSpeed
-      value: 10
+      value: 10.000001
       objectReference: {fileID: 0}
     - target: {fileID: 2083665310372157350, guid: cdf912e1970538647ad07b028ff36418,
         type: 3}
@@ -3281,7 +3281,7 @@ PrefabInstance:
     - target: {fileID: 1890571625605029342, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
       propertyPath: m_Name
-      value: player (4)
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 8033762190739144551, guid: 0461d11647d5a0849873c9e5078483fa,
         type: 3}
