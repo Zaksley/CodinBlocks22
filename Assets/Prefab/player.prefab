@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 0}
-  maxLevel: 9
+  maxLevel: 12
   doorAnimator: {fileID: 0}
   audioHandler: {fileID: 0}
   LaserBlue: {fileID: 7909422015901811233, guid: 09069f43b98427540af911bd735fbd8f,
