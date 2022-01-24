@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded = false; 
     public Transform groundCheck;
     public float groundCheckRadius;
+    private float groundOffsetY = 1.02f; 
     public LayerMask collisionLayers;
 
 
@@ -123,7 +124,8 @@ public class PlayerController : MonoBehaviour
         
         if (Input.GetButtonDown("Switch") && isGrounded ) 
         {
-            Switch(); 
+            Switch();
+            TranslatePlayer();  
         }
 
         flip(movement.x);
@@ -164,18 +166,39 @@ public class PlayerController : MonoBehaviour
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
     }
 
+ 
+    private void TranslatePlayer() 
+    {
+        if (state == State.DARK)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = darkSprite; 
+            this.gameObject.GetComponent<SpriteRenderer>().flipY = true;
+            jumpDirection = -1; 
+
+            transform.position = new Vector3(transform.position.x, transform.position.y - switchHeight, transform.position.z); 
+            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 1.02f, groundCheck.position.z); 
+            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y - offsetY, transform.position.z);
+        }
+        else if (state == State.LIGHT)
+        {   
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = lightSprite; 
+            this.gameObject.GetComponent<SpriteRenderer>().flipY = false;
+            jumpDirection = 1; 
+
+            transform.position = new Vector3(transform.position.x, transform.position.y + switchHeight, transform.position.z); 
+            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y - 1.02f, groundCheck.position.z);
+            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z);
+        }
+
+                // Flip gravity
+        this.gameObject.GetComponent<Rigidbody2D>().gravityScale = - this.gameObject.GetComponent<Rigidbody2D>().gravityScale; 
+    }
+
     void Switch() 
     {
         if (state == State.LIGHT)
         {
             state = State.DARK; 
-
-            // Flip player 
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = darkSprite; 
-            this.gameObject.GetComponent<SpriteRenderer>().flipY = true;
-            transform.position = new Vector3(transform.position.x, transform.position.y - switchHeight, transform.position.z); 
-            jumpDirection = -1; 
-            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 1.02f, groundCheck.position.z); 
         
             // Show tilemaps
             Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = true; 
@@ -193,7 +216,6 @@ public class PlayerController : MonoBehaviour
             // Lights
             globalLight.intensity = lightIntensity_Black; 
             personnalLight.color = red; 
-            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y - offsetY, transform.position.z);
 
             SetIntensity_Light(BlueLights, BlueIntensity);
             SetIntensity_Light(RedLights, 0);
@@ -208,13 +230,6 @@ public class PlayerController : MonoBehaviour
         else if (state == State.DARK) 
         {
             state = State.LIGHT; 
-
-            // Flip player 
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = lightSprite; 
-            this.gameObject.GetComponent<SpriteRenderer>().flipY = false;
-            transform.position = new Vector3(transform.position.x, transform.position.y + switchHeight, transform.position.z); 
-            jumpDirection = 1; 
-            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y - 1.02f, groundCheck.position.z);
 
             // Show tilemaps
             Tilemap_LightBlocks.GetComponent<TilemapRenderer>().enabled = false; 
@@ -231,7 +246,6 @@ public class PlayerController : MonoBehaviour
             // Lights
             globalLight.intensity = lightIntensity_White; 
             personnalLight.color = blue; 
-            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z);
 
             SetIntensity_Light(BlueLights, 0);
             SetIntensity_Light(RedLights, RedIntensity);
@@ -241,10 +255,6 @@ public class PlayerController : MonoBehaviour
             audioHandler.soundup();
             
         }
-
-        // Flip gravity
-        this.gameObject.GetComponent<Rigidbody2D>().gravityScale = - this.gameObject.GetComponent<Rigidbody2D>().gravityScale; 
-        
     }
 
     private void SetIntensity_Light(List<Light2D> L, int intensity) 
