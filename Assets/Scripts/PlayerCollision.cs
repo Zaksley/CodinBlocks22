@@ -17,6 +17,8 @@ public class PlayerCollision : MonoBehaviour
     private GameObject getGO;
     public AudioHandler audioHandler;
 
+   
+
     //Lasers
     public Tilemap LaserBlue;
     public Tilemap LaserRed; 

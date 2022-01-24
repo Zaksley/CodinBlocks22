@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     public float switchHeight = 2f; 
     public State state; 
 
+     public bool pause = false;
+
     // Move
     public float moveSpeed = 5f; 
     public bool gotKey = false; 
@@ -73,6 +75,20 @@ public class PlayerController : MonoBehaviour
     public AudioHandler audioHandler;
 
     // Start is called before the first frame update
+
+
+    public static PlayerController instance;
+    void Awake(){
+        //objs = GameObject.FindGameObjectsWithTag("_music");
+
+        if (instance != null)
+        {
+            Debug.LogWarning("Instance de Player inexistante");
+            return;
+        }
+
+        instance = this;
+    }
     void Start()
     {
         state = State.LIGHT; 
@@ -117,21 +133,35 @@ public class PlayerController : MonoBehaviour
         */
 
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayers);
-        Jump(); 
         
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); 
-        transform.position += movement * Time.deltaTime * moveSpeed; 
-        
-        if (Input.GetButtonDown("Switch") && isGrounded ) 
+        if (!pause)
         {
-            Switch();
-            TranslatePlayer();  
+            Jump(); 
+            Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); 
+            transform.position += movement * Time.deltaTime * moveSpeed; 
+            if (Input.GetButtonDown("Switch") && isGrounded ) 
+            {
+                Switch();
+                TranslatePlayer();  
+            }
+
+            flip(movement.x);
+
+            float characterVelocity = Mathf.Abs(movement.x);
+            animator.SetFloat("Speed", characterVelocity);
         }
+        
+        
+        
+    }
 
-        flip(movement.x);
+    public void stopMovement(){
+        pause = true;
+    }
 
-        float characterVelocity = Mathf.Abs(movement.x);
-        animator.SetFloat("Speed", characterVelocity);
+    public void resumeMovement()
+    {
+        pause = false;
     }
 
     void Jump() 

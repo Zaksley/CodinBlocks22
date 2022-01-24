@@ -28,6 +28,7 @@ public class pauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0;
         gameIsPaused = true;
+        PlayerController.instance.stopMovement();
     }
 
     public void Resume()
@@ -35,10 +36,13 @@ public class pauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1;
         gameIsPaused = false;
+        PlayerController.instance.resumeMovement();
     }
 
     public void LoadMainMenu()
     {
+        DontDestroy.instance.RemoveFromDontDestroy();
+        Resume();
         SceneManager.LoadScene("Menu");
     }
 
