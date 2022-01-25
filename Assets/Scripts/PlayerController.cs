@@ -126,10 +126,12 @@ public class PlayerController : MonoBehaviour
         
         if (!pause)
         {
+
+
             Jump(); 
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); 
             transform.position += movement * Time.deltaTime * moveSpeed; 
-            if (Input.GetButtonDown("Switch") && isGrounded ) 
+            if (Input.GetButtonDown("Switch") && isGrounded && (SceneManager.GetActiveScene().name != "EndGame")) 
             {
                 Switch();
                 TranslatePlayer();  
