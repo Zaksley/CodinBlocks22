@@ -110,7 +110,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: c89934cbc06a34e4bbfcecdcaf4cdebd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.48, y: 0.48}
   m_AdaptiveModeThreshold: 0.5
@@ -213,29 +213,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   switchHeight: 2
-  state: 0
+  state: 1
   pause: 0
   moveSpeed: 5
   gotKey: 0
-  rb: {fileID: 0}
-  jumpSpeed: 12
+  rb: {fileID: 7048928402403057345}
+  jumpSpeed: 7.5
   jumpDirection: 1
   isGrounded: 0
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 2927083234888545296}
   groundCheckRadius: 0
   collisionLayers:
     serializedVersion: 2
-    m_Bits: 0
-  darkSprite: {fileID: 21300000, guid: c89934cbc06a34e4bbfcecdcaf4cdebd, type: 3}
-  lightSprite: {fileID: 21300000, guid: d2bc5fb025bd73d479208e1870f262b2, type: 3}
+    m_Bits: 4294967295
+  darkSprite: {fileID: 21300000, guid: 1dde6a8437528164bbd05e91b2fb0570, type: 3}
+  lightSprite: {fileID: 21300000, guid: c89934cbc06a34e4bbfcecdcaf4cdebd, type: 3}
   animator: {fileID: 1199881236707466346}
   spriteRenderer: {fileID: 7048928402403057351}
   personnalLight: {fileID: 5736172504954468372}
-  lightIntensity_White: 0.7
-  lightIntensity_Black: 0.2
-  BlueLights: []
-  RedLights: []
-  audioHandler: {fileID: 0}
+  player: {fileID: 0}
+  offSetPlayerX: 9
+  offSetPlayerY: 1.9
 --- !u!1001 &751378965481111490
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -251,7 +249,7 @@ PrefabInstance:
     - target: {fileID: 3465749074222630764, guid: 28561a2e6af119c4a81ceb93b7cebf0c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.219
+      value: -0.216
       objectReference: {fileID: 0}
     - target: {fileID: 3465749074222630764, guid: 28561a2e6af119c4a81ceb93b7cebf0c,
         type: 3}

@@ -34,8 +34,6 @@ public class SecondPlayerController : MonoBehaviour
     private float groundOffsetY = 1.02f; 
     public LayerMask collisionLayers;
 
-
-
     // Sprites
     public Sprite darkSprite; 
     public Sprite lightSprite; 
@@ -51,23 +49,18 @@ public class SecondPlayerController : MonoBehaviour
     private Color blue; 
     private float offsetY = 0.219f; 
     private float offsetX = 0.048f;
-    [SerializeField] private float lightIntensity_White = 0.7f; 
-    [SerializeField] private float lightIntensity_Black = 0.2f; 
-    public List<Light2D> BlueLights; 
-    public List<Light2D> RedLights; 
 
-    private int BlueIntensity = 1;
-    private int RedIntensity = 1; 
 
     public GameObject player; 
     public float offSetPlayerX = 9f; 
     public float offSetPlayerY = 1.82f; 
 
-
-    public static PlayerController instance;
-
     void Start()
     {
+
+        blue = new Color32( 0x3A, 0xB6, 0xD9, 0xFF ); 
+        red = new Color32( 0xA7, 0x0A, 0x0A, 0xFF ); 
+
         state = State.DARK; 
         transform.position = player.transform.position + new Vector3(offSetPlayerX, -offSetPlayerY, 0); 
 
@@ -76,11 +69,15 @@ public class SecondPlayerController : MonoBehaviour
 
         // Lights
         personnalLight.color = red; 
+        jumpDirection = -1; 
+        this.gameObject.GetComponent<Rigidbody2D>().gravityScale = - 1.3f; 
     }
 
 
     void Update()
     {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, collisionLayers);
+
         if (Input.GetButtonDown("Switch") && isGrounded ) 
         {
             Switch();
@@ -128,23 +125,23 @@ public class SecondPlayerController : MonoBehaviour
     {
         if (this.gameObject.GetComponent<SpriteRenderer>().flipY == true)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = darkSprite; 
-            this.gameObject.GetComponent<SpriteRenderer>().flipY = true;
-            jumpDirection = -1; 
-
-            transform.position = new Vector3(transform.position.x, transform.position.y - switchHeight, transform.position.z); 
-            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 1.02f, groundCheck.position.z); 
-            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y - offsetY, transform.position.z);
-        }
-        else if (this.gameObject.GetComponent<SpriteRenderer>().flipY == false)
-        {   
             this.gameObject.GetComponent<SpriteRenderer>().sprite = lightSprite; 
             this.gameObject.GetComponent<SpriteRenderer>().flipY = false;
             jumpDirection = 1; 
 
             transform.position = new Vector3(transform.position.x, transform.position.y + switchHeight, transform.position.z); 
-            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y - 1.02f, groundCheck.position.z);
-            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y + offsetY, transform.position.z);
+            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y - 1.02f, groundCheck.position.z); 
+            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x - offsetX, transform.position.y + offsetY, transform.position.z);
+        }
+        else if (this.gameObject.GetComponent<SpriteRenderer>().flipY == false)
+        {   
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = darkSprite; 
+            this.gameObject.GetComponent<SpriteRenderer>().flipY = true;
+            jumpDirection = -1; 
+
+            transform.position = new Vector3(transform.position.x, transform.position.y - switchHeight, transform.position.z); 
+            groundCheck.position = new Vector3(groundCheck.position.x, groundCheck.position.y + 1.02f, groundCheck.position.z);
+            GameObject.Find("PersonnalLight").transform.position = new Vector3(transform.position.x + offsetX, transform.position.y - offsetY, transform.position.z);
         }
 
                 // Flip gravity

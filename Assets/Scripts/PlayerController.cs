@@ -140,9 +140,6 @@ public class PlayerController : MonoBehaviour
             float characterVelocity = Mathf.Abs(movement.x);
             animator.SetFloat("Speed", characterVelocity);
         }
-        
-        
-        
     }
 
     public void stopMovement(){
