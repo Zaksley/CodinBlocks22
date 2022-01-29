@@ -215,6 +215,14 @@ public class PlayerController : MonoBehaviour
 
     public void Switch() 
     {
+            // Reset lasers
+            
+        GameObject.FindWithTag("LaserBlue").GetComponent<TilemapCollider2D>().enabled = false; 
+        GameObject.FindWithTag("LaserRed").GetComponent<TilemapCollider2D>().enabled = false; 
+        GameObject.FindWithTag("LaserBlue").GetComponent<TilemapCollider2D>().enabled = true; 
+        GameObject.FindWithTag("LaserRed").GetComponent<TilemapCollider2D>().enabled = true;
+        
+
         if (state == State.LIGHT)
         {
             state = State.DARK; 
