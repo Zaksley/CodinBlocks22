@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour
 
     public TileBase DarkTile;
     public TileBase LightTile;
+    public bool blueLasersUp = true; 
+    public bool redLaserUp = true; 
 
     // Sprites
     public Sprite darkSprite; 
@@ -74,7 +76,6 @@ public class PlayerController : MonoBehaviour
     private GameObject getGO;
     public AudioHandler audioHandler;
 
-    // Start is called before the first frame update
 
 
     public static PlayerController instance;
@@ -131,6 +132,7 @@ public class PlayerController : MonoBehaviour
             Jump(); 
             Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f); 
             transform.position += movement * Time.deltaTime * moveSpeed; 
+
             if (Input.GetButtonDown("Switch") && isGrounded && (SceneManager.GetActiveScene().name != "EndGame")) 
             {
                 Switch();
@@ -216,11 +218,17 @@ public class PlayerController : MonoBehaviour
     public void Switch() 
     {
             // Reset lasers
-            
-        GameObject.FindWithTag("LaserBlue").GetComponent<TilemapCollider2D>().enabled = false; 
-        GameObject.FindWithTag("LaserRed").GetComponent<TilemapCollider2D>().enabled = false; 
-        GameObject.FindWithTag("LaserBlue").GetComponent<TilemapCollider2D>().enabled = true; 
-        GameObject.FindWithTag("LaserRed").GetComponent<TilemapCollider2D>().enabled = true;
+        if (GameObject.FindWithTag("LaserBlue") != null && blueLasersUp)
+        {
+            GameObject.FindWithTag("LaserBlue").GetComponent<TilemapCollider2D>().enabled = false; 
+            GameObject.FindWithTag("LaserBlue").GetComponent<TilemapCollider2D>().enabled = true; 
+        }    
+    
+        if (GameObject.FindWithTag("LaserRed") != null && redLaserUp)
+        {
+            GameObject.FindWithTag("LaserRed").GetComponent<TilemapCollider2D>().enabled = false; 
+            GameObject.FindWithTag("LaserRed").GetComponent<TilemapCollider2D>().enabled = true; 
+        }    
         
 
         if (state == State.LIGHT)

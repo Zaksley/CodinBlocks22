@@ -57,6 +57,9 @@ public class PlayerCollision : MonoBehaviour
         laser.GetComponent<TilemapCollider2D>().enabled = false; 
 
         collision.GetComponent<SpriteRenderer>().flipX = true; 
+
+        if (laser.tag == "LaserBlue")   this.GetComponent<PlayerController>().blueLasersUp = false; 
+        if (laser.tag == "LaserRed")    this.GetComponent<PlayerController>().redLaserUp = false; 
     }
 
     private void SwitchPlayer(PlayerController.State Color)
